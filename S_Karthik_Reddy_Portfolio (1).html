@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of S. Karthik Reddy, B.Tech CSE (AI & ML) student at Sandip University." />
+  <title>S. Karthik Reddy | Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: rgba(19, 28, 52, .82);
+      --text: #f4f7ff;
+      --muted: #aab6d3;
+      --accent: #7c9cff;
+      --accent2: #45e0c1;
+      --line: rgba(255,255,255,.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background: radial-gradient(circle at 80% 10%, #1a2a55 0, transparent 32%),
+                  radial-gradient(circle at 10% 70%, #142d3c 0, transparent 28%), var(--bg);
+      color: var(--text); line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1100px, 90%); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; backdrop-filter: blur(18px);
+      background: rgba(11,16,32,.82); border-bottom: 1px solid var(--line);
+    }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-weight: 800; letter-spacing: .5px; }
+    .brand span { color: var(--accent2); }
+    .navlinks { display: flex; flex-wrap: wrap; gap: 22px; color: var(--muted); font-size: .94rem; }
+    .navlinks a:hover { color: var(--accent2); }
+    .hero { min-height: 78vh; display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 55px; padding: 80px 0; }
+    .eyebrow { color: var(--accent2); text-transform: uppercase; letter-spacing: 2px; font-size: .78rem; font-weight: 800; }
+    h1 { font-size: clamp(2.7rem, 6vw, 5rem); line-height: 1.06; letter-spacing: -2px; margin: 17px 0; }
+    h1 span { color: var(--accent); }
+    .intro { max-width: 650px; color: var(--muted); font-size: 1.1rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 19px; border-radius: 12px; font-weight: 700; border: 1px solid var(--line); transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-3px); }
+    .primary { color: #07111c; background: linear-gradient(120deg, var(--accent2), #a4f4e6); border: none; }
+    .hero-card { border: 1px solid var(--line); background: linear-gradient(145deg, rgba(124,156,255,.17), rgba(69,224,193,.07)); padding: 28px; border-radius: 28px; box-shadow: 0 25px 70px rgba(0,0,0,.25); }
+    .avatar { width: 112px; height: 112px; display: grid; place-items: center; border-radius: 30px; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #091321; font-size: 2rem; font-weight: 900; margin-bottom: 22px; }
+    .hero-card h2 { font-size: 1.4rem; margin-bottom: 5px; }
+    .hero-card p { color: var(--muted); }
+    .quickfacts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 23px; }
+    .fact { background: rgba(5,10,23,.35); border: 1px solid var(--line); padding: 13px; border-radius: 13px; }
+    .fact strong { display: block; font-size: 1.15rem; color: var(--accent2); }
+    .fact small { color: var(--muted); }
+    section { padding: 76px 0; }
+    .section-head { margin-bottom: 28px; }
+    .section-head p { color: var(--accent2); font-size: .78rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; }
+    h2.section-title { font-size: clamp(1.9rem, 4vw, 2.7rem); margin-top: 7px; letter-spacing: -.8px; }
+    .about-grid, .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); padding: 25px; border-radius: 20px; }
+    .panel p { color: var(--muted); }
+    .panel h3 { margin-bottom: 10px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .tag { font-size: .88rem; color: #dce5ff; background: rgba(124,156,255,.12); border: 1px solid rgba(124,156,255,.25); padding: 7px 11px; border-radius: 999px; }
+    .timeline { border-left: 2px solid rgba(124,156,255,.55); padding-left: 23px; margin-left: 8px; }
+    .timeline .panel { position: relative; margin-bottom: 16px; }
+    .timeline .panel::before { content: ""; position: absolute; left: -32px; top: 29px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent2); box-shadow: 0 0 0 5px rgba(69,224,193,.12); }
+    .muted { color: var(--muted); }
+    .project-note { border-style: dashed; }
+    .contact { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 25px; }
+    footer { border-top: 1px solid var(--line); padding: 25px 0; color: var(--muted); font-size: .9rem; }
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 65px 0; gap: 30px; }
+      .navlinks { gap: 12px; font-size: .84rem; }
+      .about-grid, .cards { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -1px; }
+      nav { align-items: flex-start; padding: 18px 0; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#home">SKR<span>.</span></a>
+      <div class="navlinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" id="home">
+      <div>
+        <p class="eyebrow">Student • Aspiring AI/ML Developer</p>
+        <h1>Hi, I'm <span>S. Karthik Reddy.</span></h1>
+        <p class="intro">I’m a B.Tech student at Sandip University, specializing in Computer Science and Engineering with Artificial Intelligence and Machine Learning. I’m building my foundations in programming, problem-solving, and intelligent technology.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore my work ↗</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="avatar">SKR</div>
+        <h2>S. Karthik Reddy</h2>
+        <p>B.Tech CSE (AI & ML)</p>
+        <p>Sandip University</p>
+        <div class="quickfacts">
+          <div class="fact"><strong>AI + ML</strong><small>Area of study</small></div>
+          <div class="fact"><strong>Learning</strong><small>Mindset</small></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head"><p>About me</p><h2 class="section-title">Curious by nature. Building step by step.</h2></div>
+        <div class="about-grid">
+          <div class="panel">
+            <h3>Who I am</h3>
+            <p>I’m a student exploring computer science, AI, and machine learning. I enjoy learning how software works, strengthening my coding skills, and turning concepts into practical projects.</p>
+          </div>
+          <div class="panel">
+            <h3>What I’m working toward</h3>
+            <p>My goal is to grow into a capable technology professional by improving my technical fundamentals, collaborating with others, and creating useful, user-friendly applications.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head"><p>Skills & interests</p><h2 class="section-title">Areas I’m developing</h2></div>
+        <div class="panel">
+          <p class="muted">Edit these tags to match your current skills and experience.</p>
+          <div class="tags">
+            <span class="tag">C / C++</span><span class="tag">Python</span><span class="tag">HTML & CSS</span>
+            <span class="tag">Problem Solving</span><span class="tag">Artificial Intelligence</span>
+            <span class="tag">Machine Learning</span><span class="tag">Web Development</span><span class="tag">Teamwork</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <div class="section-head"><p>Education</p><h2 class="section-title">My learning journey</h2></div>
+        <div class="timeline">
+          <div class="panel">
+            <h3>B.Tech — Computer Science & Engineering (AI & ML)</h3>
+            <p>Sandip University</p>
+            <p class="muted">Currently pursuing undergraduate studies. Add your expected graduation year, semester, or relevant coursework here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head"><p>Projects</p><h2 class="section-title">Selected work</h2></div>
+        <div class="cards">
+          <article class="panel project-note">
+            <h3>Project 01 — Coming soon</h3>
+            <p>Add a project you have built, including its purpose, the tools used, and what you learned while developing it.</p>
+            <div class="tags"><span class="tag">Your technology</span><span class="tag">Your contribution</span></div>
+          </article>
+          <article class="panel project-note">
+            <h3>Project 02 — In progress</h3>
+            <p>Use this space to showcase another assignment, mini-project, or personal experiment. Replace this text with real project details.</p>
+            <div class="tags"><span class="tag">Problem solving</span><span class="tag">Learning by doing</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap panel contact">
+        <div>
+          <div class="section-head" style="margin-bottom:0"><p>Contact</p><h2 class="section-title">Let’s connect.</h2></div>
+          <p class="muted">Add your email and professional links here so people can reach you.</p>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="mailto:your.email@example.com">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">© <span id="year"></span> S. Karthik Reddy · Personal Portfolio</div></footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
